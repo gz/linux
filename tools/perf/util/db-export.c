@@ -373,7 +373,7 @@ int db_export__sample(struct db_export *dbe, union perf_event *event,
 
 	main_thread = thread__main_thread(al->machine, thread);
 	if (main_thread)
-		comm = machine__thread_exec_comm(al->machine, main_thread);
+		comm = thread__comm(main_thread);
 
 	err = db_export__thread(dbe, thread, al->machine, comm);
 	if (err)
